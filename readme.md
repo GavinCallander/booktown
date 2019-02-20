@@ -35,22 +35,37 @@ Complete the following exercises to practice using SQL.
 
 ### Order
 * Find all subjects sorted by subject
+	SELECT * FROM subjects ORDER BY subject;
 * Find all subjects sorted by location
+	SELECT * subjects ORDER BY location;
 
 ### Where
 * Find the book "Little Women"
+	SELECT title FROM books WHERE title = 'Little Women';
 * Find all books containing the word "Python"
+	SELECT title FROM books WHERE title LIKE '%Python%';
 * Find all subjects with the location "Main St" sort them by subject
+	SELECT * FROM subjects WHERE location = 'Main St' ORDER BY subject;
+		
 
 
 ### Joins
 
 * Find all books about Computers and list ONLY the book titles
+	SELECT title FROM books WHERE subject_id = 4;
 * Find all books and display a result table with ONLY the following columns
 	* Book title
 	* Author's first name
 	* Author's last name
 	* Book subject
+				SELECT books.title AS title, authors.first_name AS first_name, authors.last_name AS last_name, subjects.subject AS subject
+booktown-# FROM books
+booktown-# JOIN authors 
+booktown-# ON authors.id = books.author_id
+booktown-# JOIN subjects
+booktown-# ON subjects.id = books.subject_id;
+
+
 * Find all books that are listed in the stock table
 	* Sort them by retail price (most expensive first)
 	* Display ONLY: title and price
